@@ -5,21 +5,29 @@
 <https://killercoda.com/playgrounds/scenario/ubuntu>
 
 ```text
+sudo apt update
+```
+
+```text
+sudo apt upgrade -y
+```
+
+```text
 lscpu
 ```
 
 <https://prometheus.io/download/>
 
 ```text
-wget https://github.com/prometheus/prometheus/releases/download/v2.41.0/prometheus-2.41.0.linux-386.tar.gz
+wget https://github.com/prometheus/prometheus/releases/download/v2.37.5/prometheus-2.37.5.linux-386.tar.gz
 ```
 
 ```text
-tar xvfz prometheus-2.41.0.linux-386.tar.gz
+tar xvfz prometheus-2.37.5.linux-386.tar.gz
 ```
 
 ```text
-cd prometheus-2.41.0.linux-386/
+cd prometheus-2.37.5.linux-386/
 ```
 
 ```text
@@ -39,7 +47,7 @@ tar xvfz node_exporter-1.5.0.linux-386.tar.gz
 ```
 
 ```text
-cd node_exporter-1.5.0.linux-386
+cd node_exporter-1.5.0.linux-386/
 ```
 
 ```text
