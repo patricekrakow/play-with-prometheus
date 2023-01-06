@@ -1,6 +1,6 @@
 # Let's Play with Prometheus!
 
-<https://prometheus.io/docs/introduction/first_steps/>
+## Linux
 
 <https://killercoda.com/playgrounds/scenario/ubuntu>
 
@@ -13,21 +13,35 @@ sudo apt upgrade -y
 ```
 
 ```text
-lscpu
+uname --all
 ```
+
+## Prometheus
 
 <https://prometheus.io/download/>
 
 ```text
-wget https://github.com/prometheus/prometheus/releases/download/v2.37.5/prometheus-2.37.5.linux-386.tar.gz
+VERSION=2.37.5; echo $VERSION
 ```
 
 ```text
-tar xvfz prometheus-2.37.5.linux-386.tar.gz
+OS=linux; echo $OS
 ```
 
 ```text
-cd prometheus-2.37.5.linux-386/
+ARCH=386; echo $ARCH
+```
+
+```text
+wget https://github.com/prometheus/prometheus/releases/download/v$VERSION/prometheus-$VERSION.$OS-$ARCH.tar.gz
+```
+
+```text
+tar xvfz prometheus-$VERSION.$OS-$ARCH.tar.gz
+```
+
+```text
+cd prometheus-$VERSION.$OS-$ARCH/
 ```
 
 ```text
@@ -39,27 +53,66 @@ cat prometheus.yml
 ```
 
 ```text
-wget https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-386.tar.gz
+http://localhost:9090/
 ```
 
 ```text
-tar xvfz node_exporter-1.5.0.linux-386.tar.gz
+promhttp_metric_handler_requests_total
+```
+
+## Node Exporter
+
+```text
+VERSION=1.5.0; echo $VERSION
 ```
 
 ```text
-cd node_exporter-1.5.0.linux-386/
+OS=linux; echo $OS
+```
+
+```text
+ARCH=386; echo $ARCH
+```
+
+```text
+wget https://github.com/prometheus/node_exporter/releases/download/v$VERSION/node_exporter-$VERSION.$OS-$ARCH.tar.gz
+```
+
+```text
+tar xvfz node_exporter-$VERSION.$OS-$ARCH.tar.gz
+```
+
+```text
+cd node_exporter-$VERSION.$OS-$ARCH/
 ```
 
 ```text
 ./node_exporter
 ```
 
-```yaml
-global:
-  scrape_interval: 15s
+### Configure Prometheus
 
-scrape_configs:
-- job_name: node
-  static_configs:
-  - targets: ['localhost:9100']
+```text
+cd prometheus-2.37.5.linux-386/
 ```
+
+```text
+nano prometheus.yml
+```
+
+```yaml
+scrape_configs:
+  - job_name: node
+    static_configs:
+      - targets: ['localhost:9100']
+```
+
+```text
+node_cpu_seconds_total
+```
+
+## References
+
+<https://prometheus.io/docs/introduction/first_steps/>
+
+<https://prometheus.io/docs/guides/node-exporter/>
