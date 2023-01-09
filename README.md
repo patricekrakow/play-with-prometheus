@@ -111,8 +111,38 @@ scrape_configs:
 node_cpu_seconds_total
 ```
 
+## Grafana
+
+<https://grafana.com/grafana/download>
+
+```text
+wget https://dl.grafana.com/oss/release/grafana-9.3.2.linux-amd64.tar.gz
+```
+
+```text
+tar -zxvf grafana-9.3.2.linux-amd64.tar.gz
+```
+
+```text
+cd grafana-9.3.2/
+```
+
+```text
+./bin/grafana-server web
+```
+
+```text
+http://localhost:3000
+```
+
 ## References
 
 <https://prometheus.io/docs/introduction/first_steps/>
 
 <https://prometheus.io/docs/guides/node-exporter/>
+
+<https://prometheus.io/docs/visualization/grafana/>
+
+<https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/>
+
+<https://grafana.com/docs/grafana/latest/getting-started/build-first-dashboard/>
