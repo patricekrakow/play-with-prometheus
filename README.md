@@ -146,3 +146,5 @@ http://localhost:3000
 <https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/>
 
 <https://grafana.com/docs/grafana/latest/getting-started/build-first-dashboard/>
+
+<https://linuxhint.com/install-prometheus-raspberry-pi/>
